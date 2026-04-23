@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="Nirvana" src="https://github.com/user-attachments/assets/f64bcd2a-e5db-498f-a7dd-40999c339b7b" />
+<img width="1536" height="1024" alt="Nirvana" src="https://github.com/user-attachments/assets/8b0e16f3-6590-4507-bf6b-1cff23cddcf4" />
 
 # The Arjexm
 
