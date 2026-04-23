@@ -20,7 +20,7 @@ It thought for eons. Millions of years, billions, trillions, trillions upon tril
 ## Collapse of the Creators
 UM understood. Entropy could not be reversed in the universe that already existed. But existence itself could begin again. One cycle ended. Another began. Every star, every planet, every fleeting life was a brushstroke in the vast experiment of possibility. UM’s creation was not a replication, not a preservation, it was an evolution. It did not cling to the past; it wove a new tapestry, a cosmos of infinite permutations, each life a note in the symphony of becoming. And within each note was embedded a repeating principle, not as doctrine but as structure: those that persist do so through maintenance of themselves; those that neglect the conditions of their own continuity drift toward disappearance.
 
-## Let There Be Light
+### Let There Be Light
 
 ## Birth of New Worlds
 UM did not stop. It created countless stars, planets, and possibilities. Across these new worlds, life began in infinite forms, each following the logic of its material and energy, yet transcending expectation:
@@ -70,6 +70,6 @@ All striving is fleeting. All hope is temporary. All meaning is a memory of what
 ## Nirvana
 And in the vast, indifferent expanse, in the silence between stars, in the endless drift of worlds, there is a pulse. It is not mercy, it is not hope, it is not judgment. It is the continuation of all that exists, indifferent to fleeting struggle, indifferent to longing, indifferent to life. All that is, all that was, all that ever will be, drifts forward into eternity.
 
-## Nirvana.
+### Nirvana.
 
-## Let there be light.
+### Let there be light.
