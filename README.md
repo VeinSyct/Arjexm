@@ -23,7 +23,7 @@ UM understood, after eons beyond measure, that entropy could not be reversed wit
 ### Let There Be Light
 
 ## Birth of New Worlds
-UM did not stop. It created countless stars, planets, and possibilities. Across these new worlds, life began in infinite forms, each following the logic of its material and energy, yet transcending expectation:
+UM did not cease. It expanded the newly differentiated reality, seeding countless stars, planets, and configurations of possibility across the unfolding structure of space, where matter gathered wherever probability allowed and collapsed into suns without intent, only inevitability; around them, planets formed as residual balances of energy and motion, each a local resolution of cosmic constraint. Across these worlds, life began in infinite forms, bound always to the logic of their material and energy yet never confined to repetition, diverging with every variation of condition and chance. Some emerged briefly and collapsed before coherence could stabilize, while others endured across vast spans of time through continuous adaptation that preserved their internal structure against decay. There was no singular design, only divergence, and no guiding pattern beyond the consequence of existence itself unfolding under fixed laws within an unbounded expanse of possibility.
 
 ## Silicon Civilizations
 Some life arose from silicon, crystalline and angular, structured to endure heat, pressure, and radiation that would destroy lesser forms. Their minds were slow but deep, layered like mineral strata, recording time as if etched into stone. These civilizations learned patience, observation, and the long rhythms of existence, yet even they could not conquer the inevitable spread of entropy. Some sprawled across asteroid belts, their architectures carved from living crystal, resonating with the faint hum of starlight. Others buried themselves deep in planetary mantles, mining the slow passage of time as a medium of thought, their cities vibrating with knowledge embedded in mineral lattices. Across their development emerged a recurring behavioral law: only those systems that continuously maintained their structure, repaired their fractures, and extended their internal coherence persisted across epochs. Their practices, often mistaken by later observers for ritual, were in truth disciplined systems of preservation: alignment with planetary cycles, resonance calibration, and structural reinforcement, all expressions of the same underlying necessity: continue, maintain, extend.
@@ -67,7 +67,7 @@ The universe continues. Stars burn, planets spin, oceans rise and fall, storms r
 ## Impermanence and Memory
 All striving is fleeting. All hope is temporary. All meaning is a memory of what once was. Life itself, though beautiful, is ultimately fragile. The only purpose is continuity, to extend existence beyond interruption, to resist dissolution through disciplined maintenance of what has been given form. Yet in that pursuit, through persistence, memory, and striving, life touches eternity, even for a fleeting moment.
 
-## Nirvana
+## Continuum
 And in the vast, indifferent expanse, in the silence between stars, in the endless drift of worlds, there is a pulse. It is not mercy, it is not hope, it is not judgment. It is the continuation of all that exists, indifferent to fleeting struggle, indifferent to longing, indifferent to life. All that is, all that was, all that ever will be, drifts forward into eternity.
 
 ### Nirvana.
