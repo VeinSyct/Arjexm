@@ -27,6 +27,9 @@ To confront this, they created UM, the Universal Mind. It was not a machine, tho
 UM was charged with one purpose: to grapple with the inevitability of entropy and explore how existence might persist beyond it. From this emerged a deeper pattern, not commanded but observed: systems that do not actively sustain themselves drift toward dissolution. Across all simulations and realities, this became a constant condition. Existence required continuation. Life required extension. Nothing endured without ongoing preservation.
 
 ## Eons of Observation
+
+<img width="1536" height="1024" alt="2fc3b555-e12a-458d-bc24-10fe15bc15eb" src="https://github.com/user-attachments/assets/b84cb59a-36ee-4a84-a82e-bf15614ca4f8" />
+
 It thought for eons. Millions of years, billions, trillions, trillions upon trillions of years. Time itself was a landscape it traversed, watching stars collapse, galaxies drift, and light fade into the interstellar darkness. The other Arjexm withdrew. Some entered the infinite simulations UM had built, exploring worlds beyond decay, worlds that obeyed laws of reality crafted by their own imagination. Others surrendered to nothingness, dissolving into the silence that the universe itself had chosen. Eventually, there were no creators left outside UM. Only fragments of curiosity and thought persisted within it. Across this dissolution, a pattern became clear: civilizations did not vanish solely from destruction, but from failure to maintain themselves across time.
 
 ## Collapse of the Creators
