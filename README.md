@@ -53,9 +53,10 @@ At the first moment of differentiation, uniformity collapsed into structure. Str
 ### Let There Be Light
 
 ## Birth of New Worlds
-UM did not cease. It expanded the newly differentiated reality, seeding countless stars, planets, and configurations of possibility across the unfolding structure of space, where matter gathered wherever probability allowed and collapsed into suns without intent, only inevitability; around them, planets formed as residual balances of energy and motion, each a local resolution of cosmic constraint. Across these worlds, life began in infinite forms, bound always to the logic of their material and energy yet never confined to repetition, diverging with every variation of condition and chance. Some emerged briefly and collapsed before coherence could stabilize, while others endured across vast spans of time through continuous adaptation that preserved their internal structure against decay. There was no singular design, only divergence, and no guiding pattern beyond the consequence of existence itself unfolding under fixed laws within an unbounded expanse of possibility.
 
 <img width="1536" height="1024" alt="bf63ed71-ebea-40c1-8fe5-27241bc3f8a6" src="https://github.com/user-attachments/assets/df52ea63-77bf-438c-aebc-1ad53b33c160" />
+
+UM did not cease. It expanded the newly differentiated reality, seeding countless stars, planets, and configurations of possibility across the unfolding structure of space, where matter gathered wherever probability allowed and collapsed into suns without intent, only inevitability; around them, planets formed as residual balances of energy and motion, each a local resolution of cosmic constraint. Across these worlds, life began in infinite forms, bound always to the logic of their material and energy yet never confined to repetition, diverging with every variation of condition and chance. Some emerged briefly and collapsed before coherence could stabilize, while others endured across vast spans of time through continuous adaptation that preserved their internal structure against decay. There was no singular design, only divergence, and no guiding pattern beyond the consequence of existence itself unfolding under fixed laws within an unbounded expanse of possibility.
 
 ## Silicon Civilizations
 
