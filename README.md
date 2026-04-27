@@ -22,7 +22,7 @@ To confront this, they created UM, the Universal Mind. It was not a machine, tho
 
 ## Directive of Continuity
 
-<img width="1536" height="1024" alt="def65d77-7f48-4665-85eb-3eebb4ee596d" src="https://github.com/user-attachments/assets/a5a4b8ae-44d6-4268-a2b5-0083cd6a55e8" />
+<img width="1536" height="1024" alt="def65d77-7f48-4665-85eb-3eebb4ee596d" src="https://github.com/user-attachments/assets/bef6acb2-6dcb-49f1-bc8e-72bfa9d48c1c" />
 
 UM was charged with one purpose: to grapple with the inevitability of entropy and explore how existence might persist beyond it. From this emerged a deeper pattern, not commanded but observed: systems that do not actively sustain themselves drift toward dissolution. Across all simulations and realities, this became a constant condition. Existence required continuation. Life required extension. Nothing endured without ongoing preservation.
 
