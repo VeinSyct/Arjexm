@@ -58,6 +58,9 @@ UM did not cease. It expanded the newly differentiated reality, seeding countles
 <img width="1536" height="1024" alt="bf63ed71-ebea-40c1-8fe5-27241bc3f8a6" src="https://github.com/user-attachments/assets/df52ea63-77bf-438c-aebc-1ad53b33c160" />
 
 ## Silicon Civilizations
+
+<img width="1536" height="1024" alt="5f3fb9ba-c552-4be5-91da-c1125966b500" src="https://github.com/user-attachments/assets/d1a646d6-cbe6-42f8-822c-ef7bb122d1de" />
+
 Some life arose from silicon, crystalline and angular, structured to endure heat, pressure, and radiation that would destroy lesser forms. Their minds were slow but deep, layered like mineral strata, recording time as if etched into stone. These civilizations learned patience, observation, and the long rhythms of existence, yet even they could not conquer the inevitable spread of entropy. Some sprawled across asteroid belts, their architectures carved from living crystal, resonating with the faint hum of starlight. Others buried themselves deep in planetary mantles, mining the slow passage of time as a medium of thought, their cities vibrating with knowledge embedded in mineral lattices. Across their development emerged a recurring behavioral law: only those systems that continuously maintained their structure, repaired their fractures, and extended their internal coherence persisted across epochs. Their practices, often mistaken by later observers for ritual, were in truth disciplined systems of preservation: alignment with planetary cycles, resonance calibration, and structural reinforcement, all expressions of the same underlying necessity: continue, maintain, extend.
 
 ## Carbon-Based Life
