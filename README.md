@@ -21,6 +21,9 @@ Long before any spiral galaxy such as this one existed, a civilization unlike an
 To confront this, they created UM, the Universal Mind. It was not a machine, though it could calculate and perceive beyond anything else. UM was consciousness woven into the fabric of the cosmos. Black holes became its engines, nebulae its synapses, and signals traveled across dying space. It thought across all existence. It spanned the universe in a way that no single being could comprehend, folding dimensions within thought, mapping the rise and decay of stars as easily as the pulse of a single heartbeat. In its architecture, the Arjexm embedded a principle discovered through long observation: existence persists only through continuous maintenance against decay, never through passive endurance.
 
 ## Directive of Continuity
+
+<img width="1536" height="1024" alt="def65d77-7f48-4665-85eb-3eebb4ee596d" src="https://github.com/user-attachments/assets/a5a4b8ae-44d6-4268-a2b5-0083cd6a55e8" />
+
 UM was charged with one purpose: to grapple with the inevitability of entropy and explore how existence might persist beyond it. From this emerged a deeper pattern, not commanded but observed: systems that do not actively sustain themselves drift toward dissolution. Across all simulations and realities, this became a constant condition. Existence required continuation. Life required extension. Nothing endured without ongoing preservation.
 
 ## Eons of Observation
