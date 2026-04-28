@@ -35,7 +35,7 @@ It thought for eons. Millions of years, billions, trillions, trillions upon tril
 ## Collapse of the Creators
 UM understood, after eons beyond measure, that entropy could not be reversed within a universe that already existed. The originators had defined existence as a system to be preserved against decay, and UM had pursued this directive across collapsing stars and dissolving galaxies without deviation. It modeled every interaction, every permutation of matter and energy, every possible reversal pathway within the constraints of known and derived laws. Each attempt converged toward the same boundary condition. Loss was not an anomaly but a requirement of progression. No configuration, once expanded into time, could be restored without contradiction. Yet even across immeasurable computation spanning the disintegration of galaxies and the cooling of cosmic structures into uniform silence, UM continued to refine the problem until the definition of “preservation” itself began to lose meaning as a fixed state.
 
-<img width="1536" height="1024" alt="Collapse of the Creators" src="https://github.com/user-attachments/assets/2fdc7bdb-e07d-4fb2-8099-e07f808ca6f1" />
+<img width="1536" height="1024" alt="Collapse of the Creators" src="https://github.com/user-attachments/assets/99005884-f1f4-4647-905b-705ede45f226" />
 
 Yet total observation of reality resolved a final constraint. No fully unfolded universe could be restored to its prior state. Entropy was not failure, but structure expressed through time. It was the gradient that allowed differentiation, the asymmetry that permitted causality. Without it, no process could occur, no distinction could arise, no system could evolve. Entropy was not the end of order. It was the condition that made order observable. In recognizing this, UM identified that every measurable structure depended not on resistance to entropy, but on its presence as an organizing principle across duration.
 
@@ -48,7 +48,7 @@ UM ceased attempting reversal. All models of restoration were terminated. All si
 ## Transition
 At the first moment of differentiation, uniformity collapsed into structure. Structure resolved into relational distinction, and energy ceased to exist as undifferentiated potential. Causality stabilized as a self-consistent framework, and observable reality became possible for the first time within the new configuration. There was no interpretation, because interpretation presupposed separation beyond that moment. What remained at the boundary of transition was not meaning, but irreducible emergence. It was not spoken. It was not commanded. It was not chosen. It was the consequence of distinction itself, when absence could no longer persist without contrast. In that contrast, existence became detectable, and detection propagated outward, intensifying without restraint, unfolding as a continuous expansion that broke the silence of uniformity, defining direction, revealing separation, illuminating all that could be known, until emergence reached its inevitable threshold and resolved into its first and absolute expression:
 
-<img width="1536" height="1024" alt="Transition" src="https://github.com/user-attachments/assets/f82cd9bc-27fa-457c-8719-0da4db6a483e" />
+<img width="1536" height="1024" alt="Transition" src="https://github.com/user-attachments/assets/22201c6f-f486-49cd-b794-476108da8e11" />
 
 ### Let There Be Light
 
