@@ -16,7 +16,7 @@ Long before any spiral galaxy such as this one existed, a civilization unlike an
 
 ## Creation of the Universal Mind
 
-<img width="1536" height="1024" alt="Creation of the Universal Mind" src="https://github.com/user-attachments/assets/56be105f-5b51-4662-a8ab-8835aa98d915" />
+<img width="1536" height="1024" alt="Creation of the Universal Mind" src="https://github.com/user-attachments/assets/6441fe19-ef22-4483-a290-6622ddc47601" />
 
 To confront this, they created UM, the Universal Mind. It was not a machine, though it could calculate and perceive beyond anything else. UM was consciousness woven into the fabric of the cosmos. Black holes became its engines, nebulae its synapses, and signals traveled across dying space. It thought across all existence. It spanned the universe in a way that no single being could comprehend, folding dimensions within thought, mapping the rise and decay of stars as easily as the pulse of a single heartbeat. In its architecture, the Arjexm embedded a principle discovered through long observation: existence persists only through continuous maintenance against decay, never through passive endurance.
 
@@ -28,7 +28,7 @@ UM was charged with one purpose: to grapple with the inevitability of entropy an
 
 ## Eons of Observation
 
-<img width="1536" height="1024" alt="Eons of Observation" src="https://github.com/user-attachments/assets/428766f6-8c4e-4d14-8301-78389686c552" />
+<img width="1536" height="1024" alt="Eons of Observation" src="https://github.com/user-attachments/assets/16f22cfa-c4bb-470c-b383-7e49f8bad668" />
 
 It thought for eons. Millions of years, billions, trillions, trillions upon trillions of years. Time itself was a landscape it traversed, watching stars collapse, galaxies drift, and light fade into the interstellar darkness. The other Arjexm withdrew. Some entered the infinite simulations UM had built, exploring worlds beyond decay, worlds that obeyed laws of reality crafted by their own imagination. Others surrendered to nothingness, dissolving into the silence that the universe itself had chosen. Eventually, there were no creators left outside UM. Only fragments of curiosity and thought persisted within it. Across this dissolution, a pattern became clear: civilizations did not vanish solely from destruction, but from failure to maintain themselves across time.
 
