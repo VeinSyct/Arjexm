@@ -1,0 +1,466 @@
+<meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = 0, viewport-fit = cover, shrink-to-fit = no">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/unlock.css" />
+<link rel="stylesheet" href="assets/css/metallicgold.css" />
+<style>
+    body {
+        animation: fadeIn 1000ms ease;
+        -webkit-animation: fadeIn 1000ms ease;
+	}
+	@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .modal-frame {
+        border-radius: 50%;
+    }
+</style>
+<body></body>
+<script src="assets/js/index.js"></script>
+<script>
+    let shapeButtons = (d) => {
+        for (let i = 0; i < d.j.length; i++)
+            d.l += !i
+                ? `<label for='unlock-open' class='unlock-button unlock-open-button modal-frame' onclick='showHideShapeButtons({});verifyCodeInputs(this)' id='unlock-button'><i class='fa fa-${d.j[i]}'></i></label>`
+                : `<a class='unlock-button unlock-item modal-frame' onclick='verifyCodeInputs(this)' style='display: none'><i class='fa fa-${d.j[i]}'></i></a>`;
+        return d.l;
+    },
+    showHideShapeButtons = (d) => {
+        d.s = document.querySelectorAll(".unlock-item");
+        for (let i in d.s)
+            if (d.s[i].style)
+                d.s[i].style.display = d.s[i].style.display == "flex" ? "none" : "flex";
+    },
+    createAccount = (d) => {
+        if (localStorage.signup) {
+            d.su = JSON.parse(localStorage.signup);
+            d.su.unlock = _ul.user.unlock;
+            window.parent.postMessage({
+                action: "accounts",
+                tag: `${`${d.su[1]}`.toLowerCase().replace(/\@|\./g,"_")}`,
+                message: d.su
+            }, "*");
+        }
+    },
+    welcomPlayer = (d) => {
+        if (d.ok) {
+            d.t = `<i class='fa fa-unlock'></i> unlocked`;
+            d.u = `<i class='fa fa-check'></i>`;
+            _ul.user.trial = 5;
+            _ul.user.opened.player = _ul.signin ? JSON.parse(_ul.signin).email : JSON.parse(localStorage.signup)[1];
+            window.parent.postMessage({id:window.frameElement.id,action:'navigation-bar',update:!0},'*');
+            setTimeout(() => loadPage({ shells: _ul.shells, scroll: _ul.scroll }), 1);
+        } else {
+            _ul.user.trial--;
+            d.t = `Wrong <i class='fa fa-unlock'></i> shapes, you have ` + (_ul.user.trial > 1 ? _ul.user.trial + ` more tries.` : _ul.user.trial > 0 ? `one last try.` : `no more try.`);
+            d.u = `<i class='fa fa-lock'></i>`;
+        }
+    },
+    verifyCodeInputs = (d) => {
+        d.c = d.getElementsByTagName("i")[0].className.replace("fa fa-", "").slice(-2);
+        d.u = `<i class='fa fa-lock'></i>`;
+        delete _ul.user.opened.player;
+        if (_ul.user.unlock || _ul.signin) {
+            _ul.user.trial = _ul.user.trial === undefined ? 5 : _ul.user.trial;
+            if (_ul.user.trial > 0) {
+                d.u = `<i class='fa fa-unlock'></i>`;
+                if (d.c.match(/(ck)/)) {
+                    if (_ul.code != "") {
+                        d.ok = _ul.signin ? _ul.code == atob(JSON.parse(_ul.signin).unlock) : _ul.code == atob(_ul.user.unlock);
+                        createAccount({});
+                        welcomPlayer(d);
+                        _ul.code = "";
+                    }
+                } else _ul.code += d.c;
+            } else {
+                document.getElementById("unlock-button").disabled = !0;
+                d.t = `Too many <i class='fa fa-unlock'></i> tries!`;
+                d.u = `<i class='fa fa-close'></i>`;
+            }
+            localStorage.user = JSON.stringify(_ul.user);
+        } else {
+            if (d.c.match(/(ck|it)/)) {
+                if (_ul.code != "") {
+                    if (!_ul.confirm) {
+                        _ul.confirm = _ul.code;
+                        d.t = `Confirm your <i class='fa fa-unlock'></i> shapes`;
+                    } else if (_ul.confirm == _ul.code) {
+                        _ul.user.unlock = btoa(_ul.code);
+                        createAccount({});
+                        localStorage.user = JSON.stringify(_ul.user);
+                        localStorage.dialog = JSON.stringify({
+                            message: `You have set your unlock <i class='fa fa-unlock'></i> shapes.`,
+                            buttons: {
+                                dismiss: {
+                                    text: `<span><i class="fa fa-sign-in" style="margin-right: 12px"></i> Enter</span>`,
+                                    action: `let u=localStorage.user?JSON.parse(localStorage.user):{agreed:{},opened:{}};u.opened.player=JSON.parse(localStorage.signup)[1];delete localStorage.signup;localStorage.user=JSON.stringify(u);window.parent.postMessage({id:window.frameElement.id,action:'navigation-bar',update:!0},'*');`,
+                                    shells: `['welcome']`,
+                                    scroll: 0,
+                                    reset: !0
+                                }
+                            },
+                            back: {
+                                shells: `['signin']`,
+                                scroll: 0,
+                                reset: !0
+                            }
+                        });
+                        loadPage({ shells: ['dialog'], scroll: 0 });
+                    } else d.t = `Your <i class='fa fa-unlock'></i> shapes did not match!`;
+                    _ul.code = _ul.shapes = "";
+                } else d.t = `Select your <i class='fa fa-unlock'></i> shapes`;
+            } else {
+                _ul.code += d.c;
+                _ul.shapes += d.innerHTML.trim() + " ";
+                d.t = "[ " + _ul.shapes + " ]";
+                d.u = `<i class='fa fa-edit'></i>`;
+            }
+        }
+        if (d.t) document.getElementById("action-text").innerHTML = d.t;
+        if (d.u) document.getElementById("unlock-button").innerHTML = d.u;
+    },
+    _ul = { code:"", shapes:"", user: localStorage.user ? JSON.parse(localStorage.user) : { agreed: {}, opened: {} }, shells: ['welcome'], scroll: 0 };
+    if (!_ul.user.agreed.player && !localStorage.signin) {
+        localStorage.dialog = JSON.stringify({
+            message: localStorage.url && localStorage.url.match(/slotreel|casino/) ? `
+                <h2>
+                    Arjexm Games & Entertainment Player Agreement
+                </h2><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ PLAYER CHECKLIST, MANDATORY ACKNOWLEDGEMENT:</strong><br>
+                        Please scroll through all items and confirm each before clicking <strong>"I Agree"</strong> to ensure a safe and fun experience:
+                    </p>
+                    <div class="chk-scroll font-numerical">
+                        <ul>
+                            <li><input type="checkbox" class="agree-chk"> I understand that all gameplay uses <strong>eℂash credits</strong> and that Arjexm manages the rules for their use, gifting, financing, and redemption to keep the games fair and enjoyable for everyone.</li>
+                            <li><input type="checkbox" class="agree-chk"> I acknowledge that any loan of eℂash credits is treated as a <strong>financed investment</strong> in which the financier receives a proportional share of winnings equal to the percentage financed. No interest applies.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that if the financier covers 50% of my gameplay, then 50% of my winnings will automatically go to the financier until repayment. If I do not place any bets at all, the financier will receive <strong>100% of winnings</strong> until their contribution is fully repaid.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that eℂash credits can only be exchanged for cash once my total winnings reach <strong>$2,000</strong>, which helps keep the system sustainable for all players.</li>
+                            <li><input type="checkbox" class="agree-chk"> I agree that Arjexm is not responsible for any loss of eℂash credits due to device issues, gameplay losses, or failure to repay financed investments. I am responsible for safeguarding my credits.</li>
+                            <li><input type="checkbox" class="agree-chk"> I agree to follow all Arjexm rules and not attempt any actions that might bypass gameplay, eℂash credits, or redemption requirements.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that I must take a screenshot of every win, especially jackpots, as proof. Arjexm and the financier will only recognize wins with proper evidence.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that failure to provide screenshots for wins may make them ineligible for reaching the cash redemption threshold.</li>
+                            <li><input type="checkbox" class="agree-chk"> I acknowledge that any attempt to manipulate the app, eℂash files, or device settings to change outcomes is not allowed and will result in restricted access and adjustment of credits to maintain fair play.</li>
+                            <li><input type="checkbox" class="agree-chk"> I agree not to use hacks, emulators, or modified apps. Any detected attempts will result in temporary or permanent adjustment of credits and access.</li>
+                            <li><input type="checkbox" class="agree-chk"> I agree not to create multiple accounts or use false identities to gain extra loans. Any such attempts may result in adjustment of credits to ensure fairness for all players.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that any financed investment (loan) is binding. Refusal to repay will be considered a breach, and the financier may employ private recovery services or legal measures to recover the loan. Arjexm is authorized to cooperate fully in recovery actions if required.</li>
+                        </ul>
+                    </div>
+                </div><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ AGE VERIFICATION CHECKLIST:</strong><br>
+                        Please confirm all items to ensure a safe experience for all players:
+                    </p>
+                    <div class="chk-scroll font-numerical">
+                        <ul>
+                            <li><input type="checkbox" class="agree-chk"> I confirm that I am at least <strong>18 years old</strong> and legally allowed to participate. Minors cannot join or play.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that Arjexm may request proof of identity or verification to confirm eligibility.</li>
+                            <li><input type="checkbox" class="agree-chk"> I acknowledge that Arjexm is not responsible for lost or deleted eℂash if I do not follow the rules for capturing wins.</li>
+                        </ul>
+                    </div>
+                </div><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ IMPORTANT, READ CAREFULLY:</strong><br>
+                        Scroll to the bottom and click <strong>"I agree"</strong> only if you fully understand and accept these terms.
+                    </p>
+                    <p>
+                        All gameplay uses eℂash credits. Any financed loan is treated as an investment where the financier receives a proportional share of winnings until the financed amount is fully repaid. Winnings are split according to how much the financier provides, with no interest. If the Player does not place any bets at all, the financier receives 100% of winnings. eℂash credits can be redeemed for cash only after total winnings reach <strong>$2,000</strong>. You are responsible for capturing and preserving evidence of all wins, including jackpots. Arjexm and financiers are not liable for lost, deleted, or forfeited credits. Refusal to repay financed investments may result in private recovery actions or legal measures, and Arjexm may fully cooperate.
+                    </p>
+                </div><br>
+                <p>
+                    This is a binding electronic agreement between the Player and Arjexm Games and Entertainment. It governs gameplay, eℂash credits, financed investments (loans), cash exchanges, and use of services under these terms.
+                </p><br>
+                <h3>
+                    SCROLL-TO-AGREE ACKNOWLEDGEMENT
+                </h3><br>
+                <p>
+                    By clicking <strong>"I agree"</strong>, the Player acknowledges:
+                </p><br>
+                <ul>
+                    <li>They meet the age requirement and are legally allowed to participate.</li>
+                    <li>All gameplay uses eℂash credits managed by Arjexm to keep the experience fair.</li>
+                    <li>Any loan of eℂash credits is a financed investment where winnings are split based on the financier's percentage contribution, with no interest.</li>
+                    <li>If the Player places no bets at all, the financier receives 100% of winnings until their financed amount is repaid.</li>
+                    <li>Cash redemption occurs only after winnings reach <strong>$2,000</strong> and this rule ensures fairness for all players.</li>
+                    <li>They are responsible for screenshots of all wins, especially jackpots.</li>
+                    <li>Arjexm is not liable for lost or deleted eℂash credits.</li>
+                    <li>The Player must not attempt to exploit or bypass rules, create multiple accounts, or hack the system.</li>
+                    <li>Arjexm may adjust or revoke eℂash credits to maintain fair play if rules are violated.</li>
+                    <li>Refusal to repay financed investments may result in private recovery actions or legal measures, and Arjexm may cooperate fully.</li>
+                </ul><br>
+                <h3>
+                    NATURE OF GAMES AND ENTERTAINMENT
+                </h3><br>
+                <p>
+                    All games involve eℂash credits. Wagers are binding and final. Financed loans are treated as proportional investments, and winnings are split according to the financier’s percentage. If the Player does not place bets at all, the financier is entitled to 100% of winnings until repayment. Cash redemption is only possible after total winnings reach $2,000 to ensure a fun and sustainable environment for all players.
+                </p><br>
+                <p>
+                    Arjexm cannot reverse wagers or alter outcomes. The Player is responsible for capturing proof of wins.
+                </p><br>
+                <h3>
+                    RIGHT TO PLAY
+                </h3><br>
+                <p>
+                    The Player is granted a limited, non-transferable license to play within Arjexm. Misuse, cheating, or unauthorized sharing may result in adjusted credits or paused access to maintain fairness.
+                </p><br>
+                <h3>
+                    PLAYER RESPONSIBILITIES
+                </h3><br>
+                <ul>
+                    <li>Keep account credentials private and secure.</li>
+                    <li>Use eℂash credits responsibly.</li>
+                    <li>Safeguard credits and capture evidence of wins, especially jackpots.</li>
+                    <li>All wagers and financed investments are final.</li>
+                    <li>Do not create multiple accounts, use false identities, or attempt to bypass rules.</li>
+                    <li>Initial financed gifts (loans) or investments may be issued once per verified Player. Additional financing is discretionary.</li>
+                    <li>Cash redemption requires verification including screenshots, identity, and account evidence.</li>
+                    <li>Credits may be adjusted or revoked if rules, fraud, or abuse are detected.</li>
+                    <li>Refusal to repay financed investments may result in private recovery actions or legal measures, and Arjexm may fully cooperate.</li>
+                </ul><br>
+                <h3>
+                    LIMITATION OF LIABILITY
+                </h3><br>
+                <p>
+                    Arjexm is not liable for any loss, damage, or claim arising from gameplay, technical issues, lost or deleted eℂash credits, device issues, or Player misuse. The Player agrees to hold Arjexm harmless from all related claims. Financiers are also protected in case of player non-repayment.
+                </p><br>
+                <h3>
+                    TERMS OF GAMEPLAY AND NON-REFUND POLICY
+                </h3><br>
+                <ul>
+                    <li>All wagers are final once placed.</li>
+                    <li>No reversals or cancellations.</li>
+                    <li>Financed loans are treated as investment shares, and winnings are split according to the financier’s contribution percentage.</li>
+                    <li>If the Player does not place any bets, the financier receives 100% of winnings until their financed amount is fully repaid.</li>
+                    <li>Cash redemption only available after winnings reach $2,000.</li>
+                    <li>Attempts to exploit or bypass rules may result in credit adjustments and paused access to ensure fair play.</li>
+                    <li>Refusal to repay financed investments may result in private recovery actions or legal measures, with full cooperation from Arjexm.</li>
+                </ul><br>
+                <h3>
+                    ACKNOWLEDGEMENT OF TERMS
+                </h3><br>
+                <ul>
+                    <li>All wagers and outcomes are binding.</li>
+                    <li>Financed investments (loans) result in proportional sharing of winnings.</li>
+                    <li>The financier may receive 100% of winnings if no bets are placed.</li>
+                    <li>Cash redemption threshold is $2,000.</li>
+                    <li>The Player is responsible for safeguarding credits and screenshots.</li>
+                    <li>Arjexm may adjust or revoke credits to maintain fair play.</li>
+                    <li>Refusal to repay financed investments may result in private recovery actions or legal measures, and Arjexm may cooperate fully.</li>
+                </ul><br>
+                <h3>
+                    TERMINATION
+                </h3><br>
+                <p>
+                    Arjexm may pause or adjust access for violations of this agreement, including cheating or rule breaches, to maintain a fair and safe environment. Non-repayment of financed investments is a violation that may trigger recovery actions.
+                </p><br>
+                <h3>
+                    GOVERNING LAW AND DISPUTE RESOLUTION
+                </h3><br>
+                <p>
+                    Any dispute will be resolved under Arjexm's local jurisdiction. Attempts will first be made to resolve amicably before pursuing legal steps. Financiers may also pursue legal remedies in case of non-repayment.
+                </p><br>
+                <h3>
+                    ENTIRE AGREEMENT
+                </h3><br>
+                <p>
+                    This is the complete agreement between the Player and Arjexm for gameplay, eℂash, financed investments (loans), and cash redemption. Previous communications or statements do not alter these terms.
+                </p><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ FINAL NOTICE:</strong><br>
+                        Financed eℂash loans are treated as investments. Winnings are split based on the financier’s contribution percentage, with no interest. If the Player does not place any bets, the financier receives 100% of winnings until repayment. Cash redemption occurs only after winnings reach $2,000. Safeguard your credits and take screenshots of all wins. Minors cannot join or play. Any attempts to bypass rules, create multiple accounts, or manipulate the system may result in paused access or adjusted credits. Refusal to repay financed investments may result in private recovery actions or legal measures, with full cooperation from Arjexm and the financier. No claims against Arjexm will be accepted under any circumstance.
+                    </p>
+                </div><br>` : `<h2>
+                    Arjexm Digital Product Purchase Agreement
+                </h2><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ PRE-PURCHASE ACKNOWLEDGEMENT:</strong><br>
+                        Please confirm the following before clicking <strong>"I Agree"</strong>.
+                    </p>
+                    <div class="chk-scroll font-numerical">
+                        <ul>
+                            <li><input type="checkbox" class="agree-chk"> I understand that all Arjexm products are <strong>digital items</strong> delivered electronically and not physical goods.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that digital products are considered <strong>delivered, accessed, and reproducible</strong> immediately after purchase.</li>
+                            <li><input type="checkbox" class="agree-chk"> I acknowledge that because digital products can be downloaded, copied, saved, or reproduced, <strong>all sales are final and non-refundable</strong>.</li>
+                            <li><input type="checkbox" class="agree-chk"> I understand that Arjexm cannot verify, reverse, revoke, or confirm whether digital content has already been downloaded, viewed, copied, or accessed after purchase.</li>
+                            <li><input type="checkbox" class="agree-chk"> I agree not to initiate chargebacks, payment disputes, reversals, or fraudulent refund claims after purchasing digital products.</li>
+                        </ul>
+                    </div>
+                </div><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ IMPORTANT NOTICE:</strong><br>
+                        Arjexm provides digital products including educational content, memberships, classes, wellness materials, fitness programs, dietary courses, philosophy-based content, downloadable files, and other digital experiences using eℂash.
+                    </p>
+                    <p>
+                        Once payment is successfully completed, the digital product is automatically considered <strong>delivered and accessible</strong> to the buyer. Due to the irreversible nature of digital distribution and the inability to verify whether files have been copied, saved, reproduced, or consumed, <strong>refunds, cancellations, and returns are not possible</strong>.
+                    </p>
+                </div><br>
+                <p>
+                    This is a binding electronic agreement between the buyer ("Member") and Arjexm ("Provider"). It governs all purchases, downloads, memberships, access rights, and use of digital products and services.
+                </p><br>
+                <h3>
+                    SCROLL-TO-AGREE ACKNOWLEDGEMENT
+                </h3><br>
+                <p>
+                    By clicking <strong>"I Agree"</strong>, the Member acknowledges:
+                </p><br>
+                <ul>
+                    <li>They are purchasing non-tangible digital products or services.</li>
+                    <li>All purchases are final once payment is completed.</li>
+                    <li>Digital products may be instantly accessible, downloadable, reproducible, or viewable after purchase.</li>
+                    <li>Arjexm cannot determine whether digital products have already been downloaded, copied, viewed, shared, or consumed.</li>
+                    <li>No refunds, exchanges, cancellations, or reversals are available once purchase is completed.</li>
+                    <li>Unauthorized redistribution, duplication, resale, or sharing is prohibited.</li>
+                </ul><br>
+                <h3>
+                    NATURE OF DIGITAL PRODUCTS
+                </h3><br>
+                <p>
+                    Arjexm digital products are intangible goods delivered electronically through downloads, account access, memberships, streaming, embedded content, digital files, or online services.
+                </p><br>
+                <p>
+                    Due to the nature of digital delivery, products may become immediately accessible after payment. Once access is granted, the digital product is considered delivered regardless of whether the Member chooses to download, open, use, or consume the content.
+                </p><br>
+                <p>
+                    Because digital files and content can be copied, duplicated, stored, reproduced, recorded, or transferred without the Provider being able to monitor or retrieve them, all purchases are treated as final.
+                </p><br>
+                <h3>
+                    RIGHT TO USE
+                </h3><br>
+                <p>
+                    The Member receives a limited, non-transferable license to access purchased digital products for personal use only. Redistribution, resale, duplication, public sharing, unauthorized reproduction, or commercial exploitation is strictly prohibited.
+                </p><br>
+                <h3>
+                    MEMBER RESPONSIBILITIES
+                </h3><br>
+                <ul>
+                    <li>Keep account credentials private and secure.</li>
+                    <li>Maintain backups or records of purchased content where applicable.</li>
+                    <li>Ensure device and software compatibility before purchase.</li>
+                    <li>Use authorized payment methods only.</li>
+                    <li>Do not redistribute, leak, reproduce, or resell digital products.</li>
+                    <li>Understand that all digital purchases are irreversible once payment is processed.</li>
+                </ul><br>
+                <h3>
+                    LIMITATION OF LIABILITY
+                </h3><br>
+                <p>
+                    Arjexm is not liable for lost files, deleted downloads, device incompatibility, internet issues, access interruptions, user error, forgotten credentials, software limitations, or inability to access digital products after delivery.
+                </p><br>
+                <p>
+                    The Member assumes responsibility for securing and managing access to purchased digital content after purchase completion.
+                </p><br>
+                <h3>
+                    TERMS OF SALE AND NON-REFUND POLICY
+                </h3><br>
+                <ul>
+                    <li>All sales are final once payment is processed.</li>
+                    <li>No refunds, returns, cancellations, or exchanges are permitted for digital products.</li>
+                    <li>Digital products are considered delivered and accessible immediately upon successful payment.</li>
+                    <li>Digital items cannot be physically returned once copied, accessed, downloaded, viewed, or reproduced.</li>
+                    <li>Arjexm cannot verify whether purchased content has already been duplicated, stored, consumed, or transferred.</li>
+                    <li>Chargebacks, fraudulent disputes, or unauthorized payment reversals may result in suspended access, revoked accounts, or legal enforcement where applicable.</li>
+                </ul><br>
+                <h3>
+                    ACKNOWLEDGEMENT OF TERMS
+                </h3><br>
+                <ul>
+                    <li>The transaction involves non-tangible digital goods and services.</li>
+                    <li>Products may become instantly accessible after payment.</li>
+                    <li>All purchases are final and irreversible.</li>
+                    <li>Arjexm bears no responsibility for loss of access after delivery.</li>
+                    <li>Digital products cannot be "returned" after access has been granted.</li>
+                </ul><br>
+                <h3>
+                    TERMINATION
+                </h3><br>
+                <p>
+                    Arjexm may suspend or terminate access for violations including unauthorized sharing, abuse of the platform, account manipulation, fraudulent activity, or redistribution of digital content.
+                </p><br>
+                <h3>
+                    GOVERNING LAW AND DISPUTE RESOLUTION
+                </h3><br>
+                <p>
+                    Any disputes relating to digital purchases or platform services shall first attempt to be resolved amicably before formal legal proceedings under the applicable local jurisdiction.
+                </p><br>
+                <h3>
+                    ENTIRE AGREEMENT
+                </h3><br>
+                <p>
+                    This document represents the complete agreement between the Member and Arjexm concerning digital product purchases, eℂash transactions, memberships, downloads, and platform access.
+                </p><br>
+                <div style="border:2px solid #ff4d4d; padding:15px; background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(50,50,50,0.8))">
+                    <p>
+                        <strong>⚠️ FINAL NOTICE:</strong><br>
+                        All Arjexm products are digital and non-tangible. Once payment is completed, products are considered delivered and accessible. Because digital products may be copied, reproduced, downloaded, recorded, or transferred instantly, refunds, returns, exchanges, or reversals are not possible.
+                    </p>
+                    <p>
+                        By proceeding, you acknowledge that Arjexm cannot monitor, retrieve, revoke, or verify copied or accessed digital content after delivery. Any fraudulent chargebacks or abuse of the payment system may result in permanent account restriction or legal enforcement where applicable.
+                    </p>
+                </div><br>`,
+            buttons: {
+                decline: {
+                    type: 1,
+                    text: `<span style="white-space:nowrap"><i class="fa fa-times"></i> I decline</span>`,
+                    action: `let u=localStorage.user?JSON.parse(localStorage.user):{agreed:{},opened:{}};delete u.agreed.player;delete u.unlock;localStorage.user=JSON.stringify(u);`,
+                    shells: `['signup']`,
+                    scroll: 0,
+                    reset: !0,
+                    disabled: !0
+                },
+                reset: {
+                    text: `<span style="white-space:nowrap"><i class="fa fa-check"></i> I agree</span>`,
+                    action: `let u=localStorage.user?JSON.parse(localStorage.user):{agreed:{},opened:{}};u.agreed.player=!0;localStorage.user=JSON.stringify(u);localStorage.signAgree=!0;`,
+                    shells: `['signin']`,
+                    scroll: 0,
+                    reset: !0,
+                    disabled: !0
+                }
+            },
+            back: {
+                shells: `['signup']`,
+                scroll: 0,
+                reset: !0
+            }
+        });
+        loadPage({ shells: ['dialog'], scroll: 0, reset: !0 });
+    } else if (_ul.user.opened.player) setTimeout(() => loadPage({ shells: _ul.shells, scroll: _ul.scroll }), 1);
+    else document.body.innerHTML = `<div class='centered-container'><div class='action-text' id='action-text'></div><div class='unlock'><input id='unlock-open' name='unlock-open' class='unlock-open' type='checkbox' />${shapeButtons({ j: ["lock", "circle", "square", "bookmark", "bolt", "star", "certificate"], l: "" })}</div></div>`;
+    if (!localStorage.signAgree && !localStorage.signin)
+        loadPage({ shells: ['signup'], scroll: 0, reset: !0 });
+    _ul.signin = localStorage.signin;
+    delete localStorage.signin;
+    delete localStorage.signAgree;
+    window.parent.postMessage({
+        id: window.frameElement.id,
+        action: "whatsapp-button",
+        hide: !0
+    }, "*");
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+        window.parent.postMessage({
+            id: window.frameElement.id,
+            action: "pre-loader",
+            show: !1
+        }, "*");
+    });
+</script>

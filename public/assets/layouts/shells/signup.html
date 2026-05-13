@@ -1,0 +1,561 @@
+<meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = 0, viewport-fit = cover, shrink-to-fit = no">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/metallicgold.css" />
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+		overflow-y: scroll;
+        color: white;
+        overflow-y: scroll;
+        height: 100%;
+	}
+    .section-subtitle {
+        font-size: 1.1rem;
+        opacity: .8;
+        max-width: 600px;
+        line-height: 1.6;
+    }
+    .section {
+        padding: 5rem 1rem;
+    }
+    .section h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        color: white;
+    }
+    section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: hidden;
+        animation: fadeIn 1000ms ease;
+        -webkit-animation: fadeIn 1000ms ease;
+	}
+    @media (min-width: 1024px) {
+        section {
+            height: 100vh;
+        }
+    }
+    @media only screen and (max-width:480px) {
+        body {
+            height: 100%;
+        }
+        section {
+            padding: 42px 0 12px;
+        }
+    }
+    @media only screen and (min-width:481px) and (max-width:768px) {
+        body {
+            height: 100%;
+        }
+        section {
+            padding: 42px 0 12px;
+        }
+    }
+	@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @media only screen and (max-width:480px) {
+        section {
+            margin: 0 12px 24px;
+        }
+    }
+    @media only screen and (min-width:481px) and (max-width:768px) {
+        section {
+            margin: 0 42px 24px;
+        }
+    }
+    .login-form {
+        margin: 0 auto 24px;
+        padding: 40px 40px 12px;
+        max-width: 640px;
+        color: lightgray;
+        border-radius: 25px;
+        transition: transform 0.6s ease-out;
+    }
+    .login-form:hover {
+        transform: translateY(-3px);
+    }
+    @media (max-width: 768px) {
+        .login-form {
+            margin: 0 20px 24px;
+            padding: 30px 25px;
+        }
+    }
+    @media (max-width: 480px) {
+        .login-form {
+            margin: 0 10px 24px;
+            padding: 25px 20px;
+        }
+    }
+    .content {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .content-youtube {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        width: calc((100% * 16) / 9);
+        transform: scale(1.5);
+        pointer-events: none;
+        mix-blend-mode: luminosity;
+        opacity: .09;
+    }
+    @media only screen and (max-width:480px) {
+        .content-youtube {
+            width: calc((100% * 16) / 9);
+            transform: scale(3.8);
+        }
+    }
+    @media only screen and (min-width:481px) and (max-width:768px) {
+        .content-youtube {
+            width: calc((100% * 16) / 9);
+            transform: scale(1.5);
+        }
+    }
+    .info {
+        padding: 0 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .info h3 {
+        filter: drop-shadow(0 0 2px black);
+    }
+    .info p {
+        margin-bottom: 20px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .form-group {
+        margin-bottom: 24px;
+        position: relative;
+    }
+    .form-label {
+        margin-bottom: 8px;
+        display: block;
+        color: rgba(255, 255, 255, .9);
+        font-size: .95rem;
+        font-weight: 500;
+    }
+    .form-label span {
+        font-size: .7rem;
+        font-weight: 200;
+    }
+    .form-input,
+    .form-textarea {
+        padding: 15px 20px;
+        width: 100%;
+        background: rgba(255, 255, 255, .1);
+        border: 1px solid rgba(255, 255, 255, .2);
+        border-radius: 15px;
+        color: white;
+        font-size: 16px;
+        outline: none;
+        transition: all .3s ease;
+        backdrop-filter: blur(10px);
+        box-sizing: border-box;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+        color: rgba(255, 255, 255, .6);
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+        border-color: rgba(255, 255, 255, .4);
+        background: rgba(255, 255, 255, .15);
+        box-shadow: 0 0 20px rgba(255, 255, 255, .1);
+        transform: translateY(-2px);
+    }
+    .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+        font-family: inherit;
+    }
+    .metallic-button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .metallic-button > button {
+        position: relative;
+        padding: 12px 42px;
+        font-size: 1.1rem;
+        color: rgba(120, 140, 200, 1);
+        background: 
+            linear-gradient(
+                90deg,
+                hsla(230, 35%, 15%, .5) 0%,
+                hsla(245, 30%, 40%, .5) 15%,
+                hsla(230, 55%, 45%, .5) 40%,
+                hsla(225, 20%, 30%, .5) 60%,
+                hsla(235, 25%, 25%, .5) 80%,
+                hsla(225, 50%, 16%, .5) 100%
+            ),
+            linear-gradient(45deg, Black 0, #333333 20%, #666666 40%, #4d4d4d 70%, #000000 100%);
+        border-radius: 12px;
+        border: 4px solid #575757;
+        border: .5px solid #fadc88;
+        border-top: .031em solid #fadc88;
+        border-left: .031em solid #9c7625;
+        border-right: .031em solid #9c7625;
+        border-bottom: .031em solid #9c7625;
+        backdrop-filter: blur(3px) saturate(160%);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.35s ease;
+    }
+    .metallic-button > button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .metallic-button > button:hover {
+        color: #a0c6ff;
+        transform: translateY(-2px) scale(1.03);
+        backdrop-filter: blur(6px) saturate(160%);
+    }
+    .metallic-button > button:hover::before {
+        opacity: 1;
+        animation: metal-shine 1s ease-out forwards;
+    }
+    .metallic-button > button:active {
+        color: rgba(200, 240, 255, 1);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(0, 0, 0, .25) 0,
+                rgba(26, 26, 26, .25) 15%,
+                rgba(77, 77, 77, .25) 25%,
+                rgba(129, 54, 54, .25) 50%,
+                rgba(26, 26, 26, .25) 75%,
+                rgba(0, 0, 0, .25) 100%
+            ),
+            radial-gradient(circle farthest-corner at 50% 50%, transparent 45%, rgba(0, 0, 0, .5) 100%),
+            linear-gradient(
+                90deg,
+                hsla(230, 35%, 15%, .5) 0%,
+                hsla(245, 30%, 40%, .5) 15%,
+                hsla(230, 55%, 45%, .5) 40%,
+                hsla(225, 20%, 30%, .5) 60%,
+                hsla(235, 25%, 25%, .5) 80%,
+                hsla(225, 50%, 16%, .5) 100%
+            ),
+            linear-gradient(45deg, Black 0, #333333 20%, #666666 40%, #4d4d4d 70%, #000000 100%);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        transform: translateY(0) scale(1);
+    }
+    @keyframes metal-shine {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 0.3;
+        }
+        100% {
+            transform: translate(150%, 150%) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    .modal-icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        text-decoration: none;
+        color: #666;
+        box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+        background: conic-gradient(#d7d7d7, #c3c3c3, #cccccc, #c6c6c6, #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8, #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf, #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5, #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd, #c4c4c4, #d9d9d9, #cecece, #c5c5c5, #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9, #d7d7d7) content-box, linear-gradient(#d4d4d4, #d4d4d4) padding-box, radial-gradient(rgba(120, 120, 120, 0.9), rgba(120, 120, 120, 0) 70%) 50% bottom/80% 0.46875em no-repeat border-box;
+        text-shadow: 0 0 1px currentColor, 0 0 2px dimgrey;
+        backdrop-filter: blur(7px);
+        border-radius: 50%;
+        border-top: .031em solid #fadc88;
+        border-left: .031em solid #9c7625;
+        border-right: .031em solid #9c7625;
+        border-bottom: .031em solid #9c7625;
+        fill: currentColor;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+        z-index: 1;
+        transition: all .3s ease;
+    }
+    .modal-icon:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15) inset;
+    }
+    .modal-icon:active {
+        box-shadow: rgba(9, 30, 66, .25) 0px 1px 1px, rgba(9, 30, 66, .13) 0px 0px 1px 1px  inset;
+    }
+</style>
+<section></section>
+<script>
+    let getDigit = (d) => {
+        return d.s.match(/\d+/g).toString().replace(/,/g, "");
+    },
+    sendWhatsApp = (d) => {
+        if (/Tablet|iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+            d.w = "https://wa.me/";
+        else d.w = "https://web.whatsapp.com/send/?phone=";
+        return `${d.w}${getDigit({ s: d.m })}`;
+    },
+    loadForm = (d) => {
+        document.getElementsByTagName("section")[0].innerHTML = `
+            <div class="login-form modal-frame">
+                <div class="info">
+                    <h3><i class='fa fa-${d.su ? "user-plus" : "sign-in"} fa-2x'></i></h3>
+                    <h3>${d.su ? "Sign Up" : "Sign In"}</h3>
+                    <br>
+                    <p class="section-subtitle">${d.su ? `Ready to transcend the limits of existence? Join Arjexm and pursue a future centered on longevity and higher existence.` : `Sign in to Arjexm and transcend human limits.`}</p>
+                    <span class="modal-icon" style="position: relative"
+                        onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('p').textContent }, '*')">
+                        <i class="fa fa-volume-up"></i>
+                    </span>
+                    <br>
+                </div>
+                ${d.su ? `<div class="form-group">
+                    <label class="form-label">Username <span class="font-numerical">(optional)</span></label>
+                    <input type="text" class="form-input font-numerical" placeholder="Create a username or alias"/>            
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input font-numerical" placeholder="Enter your email address"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp <span class="font-numerical">(optional)</span></label>
+                        <input type="text" class="form-input font-numerical" placeholder="Enter your number"/>
+                    </div>
+                </div>` :
+                `<div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input font-numerical" placeholder="Enter your email address"/>
+                </div>`}
+                <div class='metallic-button'>
+                    <button onclick="${d.su ? "signUp({ m: {}, su: {}, e: this })" : "signIn({ e: this, s: document.querySelector('.form-input').value })"}">
+                        <span>${d.su ? "Sign Up" : "Next"}</span>
+                    </button>
+                </div>
+                <br>
+                <br>
+                <div style="text-align: center">
+                    ${d.su ? `I have an account, <a onclick="delete localStorage.signup;loadForm({})" style="cursor: pointer">➜]<strong> Sign In<strong></a>` :
+                    `Don't have an account yet? <a onclick="delete localStorage.signin;loadForm({ su: !0 })" style="cursor: pointer"><i class="fa fa-user-plus"></i><strong> Sign Up<strong></a>`}
+                </div>
+                <br>
+            </div>
+            <br>`;
+        if (localStorage.signup) {
+            _uz.su = JSON.parse(localStorage.signup);
+            for (let k in _uz.e)
+                if (_uz.su[k])
+                    _uz.e[k].value = _uz.su[k];
+        }
+        delete localStorage.signin;
+    },
+    signIn = (d) => {
+        if (d.s.length > 7 && d.s.match(/(\.)/)) {
+            d.e.style.display = "none";
+            window.parent.postMessage({
+                id: window.frameElement.id,
+                action: "pre-loader",
+                show: !0
+            }, "*");
+            _uz.signin = { email: d.s };
+            window.parent.postMessage({
+                id: window.frameElement.id,
+                action: "read-data",
+                tag: `accounts/${`${_uz.signin.email}`.toLowerCase().replace(/\@|\./g,"_")}`,
+            }, "*");
+        } else {
+            localStorage.dialog = JSON.stringify({
+                message: [
+                    `Oops! Unable to <i class='fa fa-sign-in'></i> sign in because ${d.s ? `the email "<strong>${d.s}</strong>"` : "<strong>blank</strong>"} you entered seems invalid. Give it another look!`,
+                    `Hmm… we couldn’t sign you in. ${d.s ? `"<strong>${d.s}</strong>"` : "<strong>Blank</strong>"} doesn’t look like a valid email address.`,
+                    `Uh-oh! ${d.s ? `The email "<strong>${d.s}</strong>"` : "<strong>Blank</strong>"} is invalid. Please check it and try signing in again!`,
+                    `That didn’t work! ${d.s ? `"<strong>${d.s}</strong>"` : "<strong>Blank</strong>"} isn’t recognized as a valid email. Double-check and try again.`,
+                    `Unable to <i class='fa fa-sign-in'></i> sign in. ${d.s ? `The email "<strong>${d.s}</strong>"` : "<strong>Blank</strong>"} seems invalid. Please correct it to continue!`
+                    ][Math.floor(Math.random() * 5)],
+                buttons: {
+                    dismiss: {
+                        text: `<span>Dismiss</span>`,
+                        shells: `['signup']`,
+                        scroll: 0
+                    }
+                },
+                back: {
+                    shells: `['signup']`,
+                    scroll: 0
+                }
+            });
+            loadPage({ shells: ['dialog'], scroll: 0 });
+        }
+    },
+    signUp = (d) => {
+        d.e.style.display = "none";
+        window.parent.postMessage({
+            id: window.frameElement.id,
+            action: "pre-loader",
+            show: !0
+        }, "*");
+        for (let k in _uz.e)
+            d.su[k] = _uz.e[k].value;
+        localStorage.signup = JSON.stringify(d.su);
+        for (let k in _uz.e)
+            if (_uz.e[k].value !== undefined) {
+                if (_uz.e[k].value !== undefined) {
+                    d.v = _uz.e[k].value.trim();
+                    if (k == 1 && (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(d.v)) || !d.v.match(/(\.)/))) {
+                        d.x = k;
+                        continue;
+                    }
+                    if (k != 1 && (k == 0 && d.v.length < 3) || (k == 2 && !d.v.match(/^[\d,\s,\+,\-]{5,20}/)))
+                        d.v = k == 0 ? "Anonymous" : "N/A";
+                    d.m[`form-input-${k}`] = d.v;
+                }
+            };
+        if (d.x || `${d.m["form-input-1"]}`.toLowerCase().match(/(neoverse|theneoverse)/) ) {
+            localStorage.dialog = JSON.stringify({
+                message: [
+                    `Oops! The email "<strong>${d.su[1]}</strong>" doesn’t seem valid. Please check and try again!`,
+                    `Hmm… "<strong>${d.su[1]}</strong>" isn’t a valid email. Could you enter a correct one?`,
+                    `Cannot create your account because "<strong>${d.su[1]}</strong>" isn’t a valid email address. Please try again.`,
+                    `Uh-oh! "<strong>${d.su[1]}</strong>" doesn’t look like a valid email. Give it another shot!`,
+                    `Looks like "<strong>${d.su[1]}</strong>" isn’t valid. Please enter a proper email to continue.`
+                    ][Math.floor(Math.random() * 5)],
+                buttons: {
+                    dismiss: {
+                        text: `<span>Dismiss</span>`,
+                        shells: `['signup']`,
+                        scroll: 0
+                    }
+                },
+                back: {
+                    shells: `['signup']`,
+                    scroll: 0
+                }
+            });
+            loadPage({ shells: ['dialog'], scroll: 0 });
+        } else window.parent.postMessage({
+                id: window.frameElement.id,
+                action: "read-data",
+                tag: `accounts/${`${d.m["form-input-1"]}`.toLowerCase().replace(/\@|\./g,"_")}`,
+            }, "*");
+    },
+    _uz = { e: document.getElementsByClassName("form-input") };
+    window.addEventListener("message", (e)=> {
+        if (e.data && e.data.action) {
+            if (e.data.action.match(/(accounts)/)) {
+                if (!_uz.signin) {
+                    if (localStorage.signup && JSON.parse(localStorage.signup)[0]) {
+                        _uz.user = localStorage.user ? JSON.parse(localStorage.user) : { agreed:{ }, opened: {} };
+                        _uz.user = Object.assign(_uz.user, { name: JSON.parse(localStorage.signup)[0] });
+                        localStorage.user = JSON.stringify(_uz.user);
+                    }
+                    if (!e.data.message) {
+                        localStorage.signAgree = !0;
+                        loadPage({ shells: ['signin'], scroll: 0 });
+                        return;
+                    }
+                } else if (e.data.message) {
+                    if (e.data.message.message[0]) {
+                        _uz.user = localStorage.user ? JSON.parse(localStorage.user) : { agreed:{ }, opened: {} };
+                        _uz.user = Object.assign(_uz.user, { name: e.data.message.message[0] });
+                        localStorage.user = JSON.stringify(_uz.user);
+                    }
+                    _uz.signin.unlock = e.data.message.message.unlock;
+                    localStorage.signin = JSON.stringify(_uz.signin);
+                    loadPage({ shells: ['signin'], scroll: 0 });
+                    return;
+                }
+                localStorage.dialog = JSON.stringify({
+                    message: _uz.signin ? [
+                        `Oops! The credentials for "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" seem invalid. Could you double-check if it’s mistyped?`,
+                        `Hmm… we couldn’t recognize "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>". Please review it for any typos!`,
+                        `Invalid credentials for "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>". Did you mistype something?`,
+                        `Uh-oh! "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" doesn’t match our records. Give it another look!`,
+                        `The credentials for "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" aren’t valid. Check for typos and try again!`
+                        ][Math.floor(Math.random() * 5)] : [
+                        `Oops! The email "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" is already registered. Try logging in or use a different one!`,
+                        `Hmm… "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" is taken. Please choose another email to create your account.`,
+                        `That email "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" is already in use. Did you mean to log in instead?`,
+                        `Uh-oh! "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" is currently registered. Pick a different email to continue!`,
+                        `Looks like "<strong>${e.data.action.replace(/accounts\//g, "").replace("_", "@").replace(/_/g, ".")}</strong>" is already taken. Please use another email to create your account.`
+                        ][Math.floor(Math.random() * 5)],
+                    buttons: {
+                        signin: _uz.signin ? {
+                            text: `<span><i class="fa fa-back"></i> Back</span>`,
+                            shells: `['signup']`,
+                            scroll: 0
+                        } : {
+                            text: `<span>Sign in ➜]</span>`,
+                            action: `let u=localStorage.user?JSON.parse(localStorage.user):{agreed:{},opened:{}};u.agreed.player=!0;localStorage.user=JSON.stringify(u);delete localStorage.signup;delete localStorage.signAgree;`,
+                            shells: `['signin']`,
+                            scroll: 0
+                        }
+                    },
+                    back: {
+                        shells: `['signup']`,
+                        scroll: 0
+                    }
+                });
+                loadPage({ shells: ['dialog'], scroll: 0 });
+                delete localStorage.signin;
+            }
+        }
+    });
+    loadForm({ su: localStorage.signup ? !0 : !1 });
+</script>
+<script src="assets/js/index.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+        window.parent.postMessage({
+            id: window.frameElement.id,
+            action: "pre-loader",
+            show: !1
+        }, "*");
+    });
+</script>

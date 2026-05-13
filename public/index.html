@@ -1,0 +1,507 @@
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = 0, viewport-fit = cover, shrink-to-fit = no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Full Screen">
+<meta name="pinterest" content="nopin">
+<meta name="referrer" content="origin">
+<meta property="og:type" content="webapp">
+<meta property="og:title" content="The Arjexm">
+<meta property="og:description" content="Arjexm is a cosmological belief system centered on continuity, preservation, and life extension as the fundamental principle of existence, emphasizing the continuous maintenance of life, structure, and identity.">
+<meta property="og:image" content="assets/images/og.jpg">
+<meta property="og:url" content="https://arjexm.web.app">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Arjexm">
+<meta name="twitter:description" content="Arjexm is a cosmological belief system centered on continuity, preservation, and life extension as the fundamental principle of existence, emphasizing the continuous maintenance of life, structure, and identity.">
+<meta name="twitter:image" content="assets/images/og.jpg">
+<meta name="twitter:url" content="https://arjexm.web.app">
+<meta name="description" content="Arjexm is a cosmological belief system centered on continuity, preservation, and life extension as the fundamental principle of existence, emphasizing the continuous maintenance of life, structure, and identity.">
+<meta name="application-name" content="The Arjexm">
+<meta name="keywords" content="Arjexm,continuity,life preservation,cosmology,philosophy,existence,longevity,maintenance of life,identity,universal mind,sacred striving,ethics of continuity">
+<meta name="author" content="The Play Makers">
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.webp">
+<title>The Arjexm</title>
+<link rel="icon" type="image/png" href="./assets/images/favicon.webp"/>
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/snap.css" />
+<link rel="stylesheet" href="assets/css/spinit.css" />
+<style>
+    .branding-icon-cont {
+        position: fixed;
+        left: 42px;
+        top: 64px;
+        transform-origin: top left;
+        animation: floating 3s ease-in-out infinite;
+        scale: 1;
+    }
+    .branding-icon {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        transition: transform .3s ease;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+        background: url("assets/images/branding-logo.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.45));
+    }
+    .querry-icon-cont {
+        position: fixed;
+        left: 36px;
+        bottom: 24px;
+        transform-origin: bottom right;
+        animation: floating 3.1s ease-in-out infinite;
+        scale: 1;
+    }
+    .querry-icon {
+        position: relative;
+        height: 86px;
+        width: 86px;
+        transition: transform .3s ease;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+        background: url("assets/images/chatbot.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.45));
+    }
+    .contact-icon-cont {
+        position: fixed;
+        left: 124px;
+        bottom: 24px;
+        transform-origin: bottom right;
+        animation: floating 3.2s ease-in-out infinite;
+        scale: 1;
+    }
+    .contact-icon {
+        position: relative;
+        height: 86px;
+        width: 86px;
+        transition: transform .3s ease;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+        background: url("assets/images/pin-location.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.45));
+    }
+    .store-icon-cont {
+        position: fixed;
+        left: 224px;
+        bottom: 24px;
+        transform-origin: bottom right;
+        animation: floating 3.3s ease-in-out infinite;
+        scale: 1;
+    }
+    .store-icon {
+        position: relative;
+        height: 86px;
+        width: 86px;
+        transition: transform .3s ease;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+        background: url("assets/images/store.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.45));
+    }
+    .branding-icon:hover,
+    .querry-icon:hover,
+    .contact-icon:hover {
+        filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.45));
+        transform: scale(1.03);
+    }
+    .branding-icon:active,
+    .querry-icon:active,
+    .contact-icon:active {
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.6));
+        transform: scale(0.98);
+    }
+    .balance-button {
+        display: none;
+        position: fixed;
+        padding: 0;
+        flex-wrap: wrap;
+        top: 42px;
+        right: 36px;
+        transform-origin: top right;
+        color: rgba(120, 140, 200, .18);
+        font-size: 2.5em;
+        font-weight: bold;
+        vertical-align: middle;
+        line-height: 1.3em;
+        letter-spacing: .12em;
+        background: #0f3854;
+        background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+        text-shadow:
+            -3px -4px 50px rgba(120, 140, 200, .18),
+            #222 -1px -1px 1px;
+        box-shadow:
+            0px 0px 1px 1px #020202,
+            -1px -2px 20px 10px rgba(140, 145, 180, .18) inset;
+        border-top: .031em solid #fadc88;
+        border-left: .031em solid #9c7625;
+        border-right: .031em solid #9c7625;
+        border-bottom: .031em solid #9c7625;
+        border-radius: 24px;
+        transition: transform .3s ease;
+        animation: floating 3.6s ease-in-out infinite;
+        cursor: url("assets/images/pointer_hand.png"), pointer;
+    }
+    .balance-button {
+        padding: 8px 36px;
+        transition: all 1800ms cubic-bezier(0.53, .09, .84, .825);
+        transition-timing-function: cubic-bezier(0.53, .09, .84, .825);
+    }
+    .balance-button:hover {
+        color: #daf6ff;
+        box-shadow: rgba(60, 64, 67, .3) 0px 1px 2px 0px, rgba(60, 64, 67, .15) 0px 1px 3px 1px;
+        text-shadow:
+            0 0 20px #0aafe6,
+            0 0 20px rgba(10, 175, 230, 0);
+    }
+    .balance-button:active {
+        box-shadow:
+            rgba(0, 0, 0, .25) 0px .0625em .0625em,
+            rgba(0, 0, 0, .25) 0px .125em .5em,
+            rgba(255, 255, 255, .1) 0px 0px 0px 1px inset;
+    }
+    .balance {
+        white-space:nowrap;
+    }
+    @keyframes floating {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-12px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    /* Tablet portrait */
+    @media only screen and (min-width: 600px) and (max-width: 1180px) and (orientation: portrait) {
+        .branding-icon-cont {
+            left: 24px;
+            top: 36px;
+        }
+        .balance-button {
+            top: 24px;
+            right: 17px;
+            scale: .8;
+        }
+        .branding-icon {
+            height: 120px;
+            width: 120px;
+        }
+        .querry-icon-cont {
+            left: 24px;
+            bottom: 24px;
+        }
+        .contact-icon-cont {
+            left: 109px;
+            bottom: 24px;
+        }
+        .store-icon-cont {
+            left: 194px;
+            bottom: 24px;
+        }
+    }
+    /* Tablet landscape */
+    @media only screen and (min-width: 600px) and (max-width: 1180px) and (orientation: landscape) {
+        .branding-icon-cont {
+            left: 24px;
+            top: 36px;
+        }
+        .balance-button {
+            top: 24px;
+            right: 17px;
+            scale: .8;
+        }
+        .branding-icon {
+            height: 120px;
+            width: 120px;
+        }        
+        .querry-icon-cont {
+            left: 24px;
+            bottom: 24px;
+        }
+        .contact-icon-cont {
+            left: 109px;
+            bottom: 24px;
+        }
+        .store-icon-cont {
+            left: 194px;
+            bottom: 24px;
+        }
+    }
+    /* Mobile portrait */
+    @media only screen and (max-width: 430px) and (orientation: portrait) {
+        .branding-icon-cont {
+            left: 17px;
+            top: 27px;
+        }
+        .balance-button {
+            top: 17px;
+            right: 14px;
+            scale: .52;
+        }
+        .branding-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .querry-icon-cont {
+            left: 6px;
+            bottom: 6px;
+        }
+        .querry-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .contact-icon-cont {
+            left: 64px;
+            bottom: 6px;
+        }
+        .contact-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .store-icon-cont {
+            left: 122px;
+            bottom: 6px;
+        }
+        .store-icon {
+            height: 64px;
+            width: 64px;
+        }
+    }
+    /* Mobile landscape */
+    @media only screen and (min-width: 414px) and (max-width: 932px) and (orientation: landscape) {
+        .branding-icon-cont {
+            left: 17px;
+            top: 27px;
+        }
+        .balance-button {
+            top: 17px;
+            right: 14px;
+            scale: .56;
+        }
+        .branding-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .querry-icon-cont {
+            left: 6px;
+            bottom: 6px;
+        }
+        .querry-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .contact-icon-cont {
+            left: 64px;
+            bottom: 6px;
+        }
+        .contact-icon {
+            height: 64px;
+            width: 64px;
+        }
+        .store-icon-cont {
+            left: 122px;
+            bottom: 6px;
+        }
+        .store-icon {
+            height: 64px;
+            width: 64px;
+        }
+    }
+</style>
+<button class="balance-button modal-frame" onclick="delete localStorage.url; for (let i = 0, j = ['branding', 'querry', 'contact', 'store']; i < j.length; i++) _pm.decam.unfade(document.querySelector(`.${j[i]}-icon-cont`), 120); loadShells({ shells: ['unlock'], scroll: 0, i: _uz.s, reset: !0 })">
+    <div class="modal-front"></div>
+    <div class="modal-overlay"></div>
+    <span class="balance">$ 0.00</span>
+</button>
+<div id="rithmytic" hidden></div>
+<div class="branding-icon-cont" onclick="delete localStorage.url; if(_pm.decam) { for (let i = 0, j = ['store-icon-cont', 'contact-icon-cont', 'querry-icon-cont', 'balance-button']; i < j.length; i++) _pm.decam.unfade(document.querySelector(`.${j[i]}`), 120); loadShells({ shells: ['carousel', 'lobby', 'faqs'], scroll: 1, i: _uz.s, reset: !0 }); _pm.decam.displayBalance({ balance: _uz.user.balance }) }">
+    <div class="branding-icon"></div>
+</div>
+<div class="querry-icon-cont" onclick="_pm.decam.fade(this, 120); for (let i = 0, j = ['contact', 'store']; i < j.length; i++) _pm.decam.fade(document.querySelector(`.${j[i]}-icon-cont`), 120); loadShells({ shells: ['chat'], scroll: 0, i: _uz.s, reset: !0 })" style="background: url('assets/images/chatbot.webp')">
+    <div class="querry-icon"></div>
+</div>
+<div class="contact-icon-cont" onclick="for (let i = 0, j = ['contact', 'store']; i < j.length; i++) _pm.decam.fade(document.querySelector(`.${j[i]}-icon-cont`), 120); loadShells({ shells: ['contact'], scroll: 0, i: _uz.s, reset: !0 })" style="background: url('assets/images/pin-location.webp')">
+    <div class="contact-icon"></div>
+</div>
+<div class="store-icon-cont" onclick="for (let i = 0, j = ['contact', 'store']; i < j.length; i++) _pm.decam.fade(document.querySelector(`.${j[i]}-icon-cont`), 120); loadShells({ shells: ['store'], scroll: 0, i: _uz.s, reset: !0 })" style="background: url('assets/images/store.webp')">
+    <div class="store-icon"></div>
+</div>
+<div class="pre-loader">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+</div>
+<div class="lcd-wobbley lcd-screen-on">
+    <div class="lcd-content">
+        <nav></nav>
+        <div class="mobile-menu" id="mobileMenu"></div>
+        <div class="snap-container">
+            <div id="shell-0">
+                <div>
+                    <div>
+                        <iframe id="iframe-unlock" src="assets/layouts/shells" hidden></iframe>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+<script>
+    window.parent.postMessage({ isLive: !0 }, "*");
+    let urlCharDecode = (url) => {
+        return url
+            .toString()
+            .replace(/%2C/g, ",")
+            .replace(/%CF%85/g, "υ")
+            .replace(/%CF%82/g, "ς")
+            .replace(/%20/g, " ")
+            .replace(/%26/g, "&")
+            .replace(/%27/g, "'")
+            .replace(/%22/g, '"')
+            .replace(/%3C/g, "<")
+            .replace(/%3E/g, ">")
+            .replace(/%28/g, "(")
+            .replace(/%29/g, ")")
+            .replace(/%5B/g, "[")
+            .replace(/%5D/g, "]")
+            .replace(/%7B/g, "{")
+            .replace(/%7D/g, "}");
+    },
+    _pm = {
+        url: urlCharDecode(location.href).split("#").slice(-1).toString(),
+        page: location.pathname.split("/").slice(-1)[0],
+        hash: document.location.hash.replace(/\#/, ""),
+        chars: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        numeric: "0123456789",
+        buttons: {},
+        public: "",
+        tag: "rithmytic",
+        user: localStorage.user ? JSON.parse(localStorage.user) : { uid: [...crypto.getRandomValues(new Uint8Array(8))].map(b=>b.toString(16).padStart(2, "0")).join(""), agreed: {}, opened: {} },
+        return: { received: 0, total: 0, key: null, target: null, data: null, exist: null },
+        worker: [],
+        useWebGPU: null,
+        firebase: {
+            url: ["firebase", "firebase-database"]
+        },
+        load: (d) => {
+            d.e = document[_ux.eu](_ux.rp);
+            d.e.src = "assets/js/interactive.js";
+            d.e.type = "module";
+            document.body[_ux.rf](d.e);
+        },
+        _establish: d => {
+            if (navigator.onLine)
+                document.head.appendChild(Object.assign(document.createElement("script"), {
+                    src: `assets/js/firebase/${_pm.firebase.url[d.i]}.js`,
+                    onload: () => {
+                        (d.i++) < _pm.firebase.url.length - 1 ? _pm._establish({
+                            i: d.i
+                        }) : _pm.fb = !0
+                    }
+                }));
+            if (!localStorage.user)
+                localStorage.user = JSON.stringify(_pm.user);
+        },
+        decam: {
+            fade: (e, d, o, t) => {
+                if (e) {
+                    o = 1;
+                    t = setInterval(() => {
+                        if (o <= 0.1) {
+                            clearInterval(t);
+                            e.style.display = "none"
+                        }
+                        e.style.opacity = o;
+                        e.style.filter = "alpha(opacity=" + o * 100 + ")";
+                        o -= o * 50 / d
+                    }, 10)
+                }
+            },
+            unfade: (e, d, o, t) => {
+                if (e) {
+                    o = 0.1;
+                    e.style.display = "flex";
+                    t = setInterval(() => {
+                        if (o >= 1) clearInterval(t);
+                        e.style.opacity = o;
+                        e.style.filter = "alpha(opacity=" + o * 100 + ")";
+                        o += o * 50 / d
+                    }, 10)
+                }
+            }
+        }
+    },
+    detectDevice = () => {
+        _pm.mobile = window.matchMedia("(any-hover: none)").matches;
+        _pm.orientation = window.innerWidth > window.innerHeight;
+        if (_pm.mobile) document.body.style.zoom = _pm.orientation == 0 && window.innerWidth > 600 ? "100%" : "100%";
+        return { mobile: _pm.mobile, landscape: _pm.orientation };
+    },
+    isOnline = () => {
+        if (_pm.fb) {
+            if (_pm.android) {
+                return AppInterface.isAppOnline();
+            } else if (navigator.onLine) return !0;
+        } else return !1;
+    },
+    getrandom = (rs0, ln1) => {
+        for (gr1 = 0, ra0 = ""; gr1 < ln1; gr1++) {
+            ra1 = Math.floor(Math.random() * rs0.length);
+            ra0 += rs0.substring(ra1, ra1 + 1);
+        }
+        return ra0;
+    },
+    deleteArray = (d) => {
+        delete d.a[d.i];
+        return d.a.filter((o) => {
+            return o !== null;
+        });
+    },
+    _start = () => {
+        try {
+            // START HERE...
+            // if (!skin)
+            //     console.log("Started!");
+            // else setTimeout(_start, 96)
+            // START HERE...
+        } catch (error) { setTimeout(_start, 96) }
+    }, _uz = {};
+    _pm._establish({
+        i: 0
+    });
+</script>
+<script src="assets/js/canvas-icons.js"></script>
+<script type="module">
+    import spoken from './assets/js/spoken.js';
+    import { Server } from "./assets/js/server.js";
+    let svr = new Server({ ["53"]: `NoKX1gXSh7ZGF0YXVybDpza2luW2hhc2hdIH0pXSx7dHlwZToidGV4dC9qYXZh`, ["64"]: `dyBCbG9iKFtfdXgueS54Lm9wW3BhcnNlSW50KGhhc2gpXVtgdG9CYXNlJHtwYX` }), { _ux, e } = svr.load({ type: "module" }); window._ux = _ux;
+    e.src = atob(_ux.dom.s);
+    e.addEventListener("load", () => _pm.load({ e: _ux.y.load({}) }));
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.appendChild(_ux.dom.e = e)
+    });
+</script>
+<script src="assets/js/shells.js"></script>
+<script>
+    window.parent.postMessage({ isLive: !0 }, "*");
+    _pm.skin = skin = Object.assign(skin, { [`53w${Math.random().toString(36).slice(2, 10)}`]: `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` });
+</script>

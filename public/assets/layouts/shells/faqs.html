@@ -1,0 +1,517 @@
+<meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = 0, viewport-fit = cover, shrink-to-fit = no">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/metallicgold.css" />
+<style>
+    :root {
+        --size-header: 2.25rem;
+        --size-accordion-title: 1.25rem;
+        --size-accordion-content: 1rem;
+        --animation-speed: 100;
+        --slide-ease: cubic-bezier(0.86, 0, 0.07, 1);
+        --slide-duration: calc(400ms * 100 / var(--animation-speed));
+        --slide-delay: calc(450ms * 100 / var(--animation-speed));
+        --circle-duration: calc(900ms * 100 / var(--animation-speed));
+    }
+    *,
+    *::before,
+    *::after {
+        position: relative;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+    }
+    a,
+    p,
+    h1 {
+        margin: 0;
+    }
+    body {
+        padding: 2rem 2rem;
+        margin: 0;
+        display: grid;
+        height: 100%;
+        place-items: center;
+        font-family: Nunito, Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
+        overflow-y: scroll;
+    }
+    main {
+        padding: 24px 0 0;
+    }
+    main > h1 {
+        font-size: var(--size-header);
+        margin-bottom: 1.25rem;
+    }
+    ::selection {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .accordion {
+        --circle-x: 1.8rem;
+        --circle-y: 0;
+        --circle-r: 200%;
+        color: #fff;
+        max-width: 64ch;
+        margin-bottom: 1rem;
+        border-radius: min(8px, 0.5rem);
+        display: grid;
+        grid-template-rows: 0fr 0fr;
+        transition-timing-function: var(--slide-ease);
+        transition-duration: 200ms, 200ms, var(--slide-duration);
+        transition-property: opacity, box-shadow, grid-template-rows;
+        transition-delay: 0ms, 0ms, var(--slide-delay);
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        opacity: 0.9;
+        animation: fadeIn 1000ms ease;
+        -webkit-animation: fadeIn 1000ms ease;
+	}
+	@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .accordion:not(:target):hover {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+    }
+    .accordion:not(:target):active {
+        opacity: 1;
+        box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.3);
+    }
+    .accordion,
+    .content {
+        overflow: hidden;
+    }
+    .accordion:target {
+        --d: 90deg;
+        grid-template-rows: 0fr 1fr;
+        transition: grid-template-rows var(--slide-ease) var(--slide-duration) var(--slide-delay);
+    }
+    .wrapper {
+        padding-block: 0 1.05rem;
+        padding-inline: 1.25rem;
+    }
+    .content {
+        font-size: var(--size-accordion-content);
+        line-height: 140%;
+    }
+    .content p {
+        margin-bottom: 1rem;
+    }
+    .content a {
+        color: currentColor;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+    .content :last-child {
+        margin-bottom: 0;
+    }
+    .title a {
+        padding: 1rem 1.25rem;
+        font-size: var(--size-accordion-title);
+        font-weight: 800;
+        color: currentColor;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        place-items: center;
+    }
+    .title a::before {
+        --chevron-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath fill='white' d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/%3E%3C/svg%3E");
+        content: "";
+        left: 0;
+        top: 0;
+        width: 0.65rem;
+        aspect-ratio: 320 / 512;
+        display: inline-block;
+        margin-right: 0.75rem;
+        transform: rotate(var(--d, 0deg));
+        transition: transform var(--slide-ease) var(--slide-duration) var(--slide-delay);
+        mask-image: var(--chevron-icon);
+        mask-size: 100% 100%;
+        -webkit-mask-image: var(--chevron-icon);
+        -webkit-mask-size: 100% 100%;
+        background-color: currentColor;
+    }
+    .accordion::before,
+    .accordion::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--circle-bg);
+        mix-blend-mode: difference;
+        transform-style: preserve-3d;
+        transition-timing-function: ease;
+        transition-property: opacity, clip-path, visibility;
+        pointer-events: none;
+        clip-path: circle(var(--r) at var(--circle-x) var(--circle-y));
+        border-radius: inherit;
+        z-index: 4;
+    }
+    .accordion::before {
+        --r: 0%;
+        transition-delay: var(--circle-duration), var(--circle-duration), 0ms;
+        transition-duration: 0ms, var(--circle-duration), 0ms;
+        opacity: 0;
+    }
+    .accordion:target::before {
+        --r: var(--circle-r);
+        transition-delay: 0ms, 0ms, 0ms;
+        transition-duration: 0ms, var(--circle-duration), 0ms;
+        opacity: 1;
+    }
+    .accordion::after {
+        --r: var(--circle-r);
+        transition-delay: 0ms, 0ms, var(--circle-duration);
+        transition-duration: 0ms, var(--circle-duration), 0ms;
+        visibility: hidden;
+        opacity: 1;
+    }
+    .accordion:target:after {
+        --r: 0%;
+        transition-delay: 0ms, 0ms, 0ms;
+        transition-duration: 0ms, 0ms, 0ms;
+        visibility: visible;
+        opacity: 0;
+    }
+    .title a:focus-visible {
+    }
+    .accordion:target .title a:focus-visible {
+    }
+    .modal-icon {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        text-decoration: none;
+        color: #666;
+        box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+        background: conic-gradient(#d7d7d7, #c3c3c3, #cccccc, #c6c6c6, #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8, #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf, #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5, #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd, #c4c4c4, #d9d9d9, #cecece, #c5c5c5, #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9, #d7d7d7) content-box, linear-gradient(#d4d4d4, #d4d4d4) padding-box, radial-gradient(rgba(120, 120, 120, 0.9), rgba(120, 120, 120, 0) 70%) 50% bottom/80% 0.46875em no-repeat border-box;
+        text-shadow: 0 0 1px currentColor, 0 0 2px dimgrey;
+        backdrop-filter: blur(7px);
+        border-radius: 50%;
+        border-top: .031em solid #fadc88;
+        border-left: .031em solid #9c7625;
+        border-right: .031em solid #9c7625;
+        border-bottom: .031em solid #9c7625;
+        fill: currentColor;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+    .modal-icon:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15) inset;
+    }
+    .modal-icon:active {
+        box-shadow: rgba(9, 30, 66, .25) 0px 1px 1px, rgba(9, 30, 66, .13) 0px 0px 1px 1px  inset;
+    }
+</style>
+<main>
+    <span style="display: flex; justify-content: center; width: 100%">
+        <h1 style="position: relative"><span class="metallic-text gold-text" data-gold="FA">FA</span><span class="metallic-text silver-text" data-silver="Qs">Qs</span></h1>
+    </span>
+    <section class="accordion modal-frame" id="what-is-arjexm">
+        <h1 class="title"><a href="#what-is-arjexm">What is Arjexm?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    <strong>Arjexm</strong> is a cosmological belief system centered on longevity as the highest principle of existence. It teaches that life must be continuously extended and preserved through active maintenance, and that <strong>death</strong> or the neglect that leads to it is the fundamental moral failing. It is not based on worship, but on understanding existence as a process that must be sustained.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="Where-does-arjexm-come-from">
+        <h1 class="title"><a href="#Where-does-arjexm-come-from">Where does Arjexm come from?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    <strong>Arjexm</strong> originates from a cosmological framework describing an ancient civilization that mastered life extension and created the <strong>Universal Mind</strong>. Through observation across eons, a single principle emerged: systems persist only through continuous maintenance. This principle became the foundation of <strong>Arjexm</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-is-the-core-belief-of-arjexm">
+        <h1 class="title"><a href="#What-is-the-core-belief-of-arjexm">What is the core belief of Arjexm?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    The core belief is continuity. Life must be extended, preserved, and maintained across time. Existence is not static, and survival depends on constant effort to sustain structure, memory, and identity against decay.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="How-does-arjexm-view-death">
+        <h1 class="title"><a href="#How-does-arjexm-view-death">How does Arjexm view death?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    <strong>Death</strong> is not seen as destiny but as a failure of continuity when it occurs through preventable neglect. While transformation is part of existence, unnecessary loss of life is considered a breakdown in maintenance and preservation.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-is-the-universal-mind">
+        <h1 class="title"><a href="#What-is-the-universal-mind">What is the Universal Mind?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    The <strong>Universal Mind</strong> is a vast, distributed consciousness embedded within the structure of reality. It observes existence across all time and states, embodying the principle that continuity must be sustained, not passively assumed.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-is-the-purpose-of-life-in-arjexm">
+        <h1 class="title"><a href="#What-is-the-purpose-of-life-in-arjexm">What is the purpose of life in Arjexm?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    The purpose of life is to extend itself. This includes preserving knowledge, maintaining health, sustaining systems, and ensuring continuity across generations. All actions are measured by how they contribute to ongoing existence.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-is-sacred-striving">
+        <h1 class="title"><a href="#What-is-sacred-striving">What is sacred striving?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    Sacred striving is the continuous effort to preserve and extend existence. It is not worship, but disciplined action toward survival, growth, and maintenance of life against the forces of decay.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-are-the-ethics-of-arjexm">
+        <h1 class="title"><a href="#What-are-the-ethics-of-arjexm">What are the ethics of Arjexm?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    Ethics are based on continuity. Actions that preserve and extend life are aligned with <strong>Arjexm</strong>, while actions that cause unnecessary collapse, destruction, or neglect of sustaining systems are considered failures of responsibility.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="Does-arjexm-believe-in-an-afterlife">
+        <h1 class="title"><a href="#Does-arjexm-believe-in-an-afterlife">Does Arjexm believe in an afterlife?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+				onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+				<i class="fa fa-volume-up"></i>
+			</span>
+            <div class="wrapper">
+                <p>
+                    <strong>Arjexm</strong> does not focus on an afterlife as a destination. Instead, it emphasizes continuity of existence through transformation, preservation, and re-emergence across systems rather than permanent endings.
+                </p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <span>
+        <h2><span class="metallic-text gold-text" data-gold="eℂash">eℂash</span><span> </span><span class="metallic-text silver-text" data-silver=" FAQS">FAQS</span></h2>
+    </span>
+    <section class="accordion modal-frame" id="What-is-eℂash">
+        <h1 class="title"><a href="#What-is-eℂash">What is eℂash?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <h3>eℂash is a locally stored electronic cash system that operates inside a web browser or hybrid mobile application.</h3>
+                <br/>
+                <p>It runs entirely on a single device after loading and does not depend on continuous internet connectivity for internal balance operations.</p>
+                <p><strong>Core Rule:</strong> eℂash is strictly device-bound. It does not exist as a shared or cloud-based balance system.</p>
+                <p>The electronic cash exists only inside the browser storage of the device where it was created or received.</p>
+                <p><strong>Important:</strong> The same eℂash data cannot exist simultaneously on multiple devices or browsers, even under the same user identity.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="How-does-eℂash-work">
+        <h1 class="title"><a href="#How-does-eℂash-work">How does eℂash work?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>After initialization, eℂash operates locally within the browser environment.</p>
+                <p>All balances and transaction states are stored in the device’s local storage and updated in real time.</p>
+                <p>No central server validates daily usage, and no external system continuously monitors balances.</p>
+                <p>Each device functions as an independent ledger instance.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="Can-I-use-eℂash-on-multiple-devices">
+        <h1 class="title"><a href="#Can-I-use-eℂash-on-multiple-devices">Can I use eℂash on multiple devices?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>eℂash is not a multi-device or cloud-synced system.</p>
+                <p>Balances do not replicate, sync, or appear when logging into another device.</p>
+                <p>Each installation is an isolated instance tied to its own browser storage environment.</p>
+                <p>Attempting duplication across devices will result in invalid or counterfeit detection behavior.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-are-eℂash-credits">
+        <h1 class="title"><a href="#What-are-eℂash-credits">What are eℂash credits?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>eℂash credits represent locally stored value units inside the system.</p>
+                <p>They exist only as part of the device’s internal stored data.</p>
+                <p>Credits are not linked to banks, payment networks, or external financial systems.</p>
+                <p>The value is valid only within the original device instance where it resides.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="How-does-transfer-work">
+        <h1 class="title"><a href="#How-does-transfer-work">How does transfer work?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>Transfers are performed using QR code communication between devices.</p>
+                <p>The QR process moves value from one device instance to another after verification.</p>
+                <p><strong>Important:</strong> QR transfer does not duplicate or mirror balances.</p>
+                <p>Once transferred, the value is removed from the sender’s local storage and created in the receiving device’s local storage.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="Where-is-data-stored">
+        <h1 class="title"><a href="#Where-is-data-stored">Where is data stored?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>All E-Cash data is stored locally inside the browser’s storage system.</p>
+                <p>No cloud database, remote server, or external backup exists.</p>
+                <p>If the local storage is removed, the data cannot be recovered from any other device.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-if-browser-is-cleared">
+        <h1 class="title"><a href="#What-if-browser-is-cleared">What if I cleared my browser?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>Clearing browser storage permanently removes all locally stored E-Cash data.</p>
+                <p>Because there is no synchronization system, the data cannot be restored from another device or login.</p>
+                <p>Each device is an independent storage environment with no shared backup layer.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="What-if-device-is-lost">
+        <h1 class="title"><a href="#What-if-device-is-lost">What if I lost my device?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>If the device is lost, stolen, or permanently damaged, all E-Cash stored on it is permanently inaccessible.</p>
+                <p>No recovery system exists because no external or cloud copy of the data is maintained.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="How-secure-is-eℂash">
+        <h1 class="title"><a href="#How-secure-is-eℂash">How secure is eℂash?</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>E-Cash uses hashed and validated local data structures to ensure transaction integrity within a device.</p>
+                <p>If modified or duplicated outside its original environment, the system will reject the data as invalid.</p>
+                <p>Security depends on device integrity rather than centralized verification systems.</p>
+            </div>
+        </div>
+    </section>
+    <section class="accordion modal-frame" id="Terms-and-Acknowledgment">
+        <h1 class="title"><a href="#Terms-and-Acknowledgment">Terms and Acknowledgment</a></h1>
+        <div class="content">
+            <span class="modal-icon" style="margin-left: 12px; position: relative"
+                onclick="window.parent.postMessage({ id: window.frameElement.id, action: 'text-audio', text: this.parentNode.querySelector('.wrapper').textContent }, '*')">
+                <i class="fa fa-volume-up"></i>
+            </span>
+            <div class="wrapper">
+                <p>By using eℂash, users acknowledge that all electronic cash exists only inside a single device’s browser storage.</p>
+                <p>The system is not cloud-based, not multi-device synchronized, and not recoverable through external login.</p>
+                <p>Users are fully responsible for protecting their device and stored data.</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+</main>
+<script src="assets/js/index.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+        window.parent.postMessage({
+            id: window.frameElement.id,
+            action: "pre-loader",
+            show: !1
+        }, "*");
+    });
+</script>

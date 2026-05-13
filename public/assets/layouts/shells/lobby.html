@@ -1,0 +1,114 @@
+<meta name="viewport" content="width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = 0, viewport-fit = cover, shrink-to-fit = no">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/metallicgold.css" />
+<style>
+    body {
+        color: #fff;
+    }
+    .wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        animation: fadeIn 1000ms ease;
+        -webkit-animation: fadeIn 1000ms ease;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    h1 {
+        font-size: 50px;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 0;
+        line-height: 1;
+        font-weight: 700;
+        text-align: center;
+    }
+    p {
+        text-align: center;
+        margin: 18px;
+        font-family: "Muli", sans-serif;
+        font-weight: normal;
+    }
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .modal-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        text-decoration: none;
+        color: #666;
+        box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+        background: conic-gradient(#d7d7d7, #c3c3c3, #cccccc, #c6c6c6, #d3d3d3, #d8d8d8, #d5d5d5, #d8d8d8, #d3d3d3, #c5c5c5, #c0c0c0, #bfbfbf, #d0d0d0, #d9d9d9, #d1d1d1, #c5c5c5, #c8c8c8, #d7d7d7, #d5d5d5, #cdcdcd, #c4c4c4, #d9d9d9, #cecece, #c5c5c5, #c5c5c5, #cdcdcd, #d8d8d8, #d9d9d9, #d7d7d7) content-box, linear-gradient(#d4d4d4, #d4d4d4) padding-box, radial-gradient(rgba(120, 120, 120, 0.9), rgba(120, 120, 120, 0) 70%) 50% bottom/80% 0.46875em no-repeat border-box;
+        text-shadow: 0 0 1px currentColor, 0 0 2px dimgrey;
+        backdrop-filter: blur(7px);
+        border-radius: 50%;
+        border-top: .031em solid #fadc88;
+        border-left: .031em solid #9c7625;
+        border-right: .031em solid #9c7625;
+        border-bottom: .031em solid #9c7625;
+        fill: currentColor;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+    .modal-icon:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15) inset;
+    }
+    .modal-icon:active {
+        box-shadow: rgba(9, 30, 66, .25) 0px 1px 1px, rgba(9, 30, 66, .13) 0px 0px 1px 1px  inset;
+    }
+</style>
+<div class="wrapper">
+    <h1>
+        <span class="metallic-text gold-text" data-gold="Coming">Coming</span>
+        <span></span>
+        <span class="metallic-text silver-text" data-silver="soon">soon</span>
+        <span class="metallic-text gold-text" data-gold="...">...</span>
+    </h1>
+    <p>You will enjoy this feature soon.</p>
+    <div class="icons">
+        <span class="modal-icon" onclick="loadPage({ shells: ['carousel', 'lobby', 'faqs'], scroll: 0, reset: !0 })">
+            <i class="fa fa-chevron-left"></i>
+        </span>
+        <span class="modal-icon user" onclick="loadPage({ shells: [_uz.user.opened && _uz.user.opened.player ? 'welcome' : 'signup'], scroll: 0, reset: !0 })">
+            <i class="fa fa-user"></i>
+        </span>
+        <span class="modal-icon" onclick="loadPage({ shells: ['contact'], scroll: 0, reset: !0 })">
+            <i class="fa fa-envelope-o"></i>
+        </span>
+    </div>
+</div>
+<script src="assets/js/index.js"></script>
+<script>
+    let _uz = { user: localStorage.user ? JSON.parse(localStorage.user) : { agreed:{ }, opened: {} } };
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+        window.parent.postMessage({
+            id: window.frameElement.id,
+            action: "pre-loader",
+            show: !1
+        }, "*");
+    });
+</script>
