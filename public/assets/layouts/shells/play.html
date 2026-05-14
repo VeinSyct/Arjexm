@@ -452,7 +452,7 @@
                 </div>
                 ${_uz.user.currency != "VCY" ? `<div class="metallic-button">
                     <button class="submit-btn" onclick="loadPage({ shells: ['currencies'], scroll: 0, reset: !0 })">
-                        <span>Currencies</span>
+                        <span><i class="fa fa-money" style="margin-right: 12px"></i> Currencies</span>
                     </button>
                 </div>` : ""}`;
             _uz.modal.style.display = "block";
@@ -565,9 +565,9 @@
                                 message: `Unable to load game, because this game is set to accept <i class='fa fa-money'></i> <strong>dollars</strong> only, please select the correct currency.`,
                                 buttons: {
                                     dismiss: {
-                                        text: `<span><i class="fa fa-sign-in" style="margin-right: 12px"></i> Enter</span>`,
-                                        shells: `['carousel', 'lobby', 'faqs']`,
-                                        scroll: 1,
+                                        text: `<span><i class="fa fa-money" style="margin-right: 12px"></i> Currencies</span>`,
+                                        shells: `['currencies']`,
+                                        scroll: 0,
                                         reset: !0
                                     }
                                 },
@@ -590,10 +590,6 @@
                             e.data.n--;
                         }
                     };
-                    window.parent.postMessage({
-                        id: window.frameElement.id,
-                        action: "display-balance"
-                    }, "*");
                     _uz.app.contentWindow.postMessage({
                         action: e.data.action,
                         sign: e.data.free ? { text: `<span>${Object.keys(e.data.free).length}${_ux.planeText({ text: `</span><br/ĆĂĄ>Free SpinĀČą`, bits: 256 })}` } : undefined,
@@ -609,6 +605,10 @@
                         action: "user-balance"
                     }, "*");
                 }
+                window.parent.postMessage({
+                    id: window.frameElement.id,
+                    action: "display-balance"
+                }, "*");
                 for (let i = 0, j = "credit-loan,issue-credit,spend-credit".split(","); i < j.length; i++)
                     if (localStorage[j[i]]) {
                         e.data.c = JSON.parse(atob(localStorage[j[i]]));
